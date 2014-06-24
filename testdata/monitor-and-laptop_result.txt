@@ -1,0 +1,2 @@
+--output HDMI3 --scale 1x1 --off
+--fb 1600x900 --output LVDS1 --mode 1600x900 --scale 1x1 --output HDMI3 --same-as LVDS1 --mode 1920x1200 --scale-from 1600x900
