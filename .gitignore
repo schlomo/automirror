@@ -1,0 +1,3 @@
+out/*
+debian/automirror*
+debian/files
