@@ -1,3 +1,12 @@
+automirror (1) saucy; urgency=low
+
+  [ Schlomo Schapiro ]
+  * Add man page, fix icon name, bail out on errors
+
+  [ Schapiro ]
+
+ -- Schapiro <sschapiro@isdeblnnl002.iscout.local>  Thu, 26 Jun 2014 09:38:33 +0200
+
 automirror (1) stable; urgency=low
 
   * Initial release.

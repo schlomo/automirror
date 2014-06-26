@@ -21,6 +21,7 @@ clean:
 
 deb: clean
 	debuild -i -us -uc -b
+	mkdir -p out
 	mv ../$(PACKAGE)*.{deb,build,changes} out/
 	dpkg -I out/*.deb
 	dpkg -c out/*.deb

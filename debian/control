@@ -3,12 +3,13 @@ Maintainer: Schlomo Schapiro <schlomo+automirror@schapiro.org>
 Section: misc
 Priority: optional
 Standards-Version: 3.9.2
+Homepage: https://github.com/schlomo/automirror
 Build-Depends: debhelper (>= 9) 
 
 Package: automirror
 Architecture: all
 Depends: ${misc:Depends}, x11-xserver-utils
 Description: Automatically mirror X screen onto available monitors
- * LVDS1 is primary output if enabled, everything else will be mirror
- * Biggest monitor (by lines) is primary, everything else will be mirror
- * Single monitor will be switched to optimum resolution
+  * LVDS1 is primary output if enabled, everything else will be mirror
+  * Biggest monitor (by lines) is primary, everything else will be mirror
+  * Single monitor will be switched to optimum resolution
