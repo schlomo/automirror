@@ -20,7 +20,7 @@ clean:
 	rm -Rf debian/$(PACKAGE)* debian/files out/*
 
 deb: clean
-	debuild -i -us -uc -b
+	debuild -i -us -uc -b --lintian-opts --profile debian
 	mkdir -p out
 	mv ../$(PACKAGE)*.{deb,build,changes} out/
 	dpkg -I out/*.deb

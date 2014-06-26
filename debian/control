@@ -10,6 +10,7 @@ Package: automirror
 Architecture: all
 Depends: ${misc:Depends}, x11-xserver-utils
 Description: Automatically mirror X screen onto available monitors
+ What it does:
   * LVDS1 is primary output if enabled, everything else will be mirror
   * Biggest monitor (by lines) is primary, everything else will be mirror
   * Single monitor will be switched to optimum resolution
