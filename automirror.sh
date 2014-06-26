@@ -9,18 +9,11 @@ PRIMARY_DISPLAY=${PRIMARY_DISPLAY:-LVDS1}
 # force called programs to english output
 LANG=C LC_ALL=C
 
-xrandr_current="$($XRANDR_STATUS_PROGRAM)"
-
-# find connected displays
-connected_displays=( $(sed -n -e 's/^\(.*\) connected.*mm$/\1/p' <<<"$xrandr_current") )
-display_list="$(sed -z -e 's/\n   / /g' <<<"$xrandr_current" | sed -n -e 's/^\([A-Z0-9]\+\) connected.* \([0-9]\+\)mm.* \([0-9]\+\)mm.* \([0-9]\+\)x\([0-9]\+\)[ 0-9\.\*]\++.*$/\1 \2 \3 \4 \5/p' )"
-: ${connected_displays[@]}
-: "$display_list"
-
 function die {
     echo 1>&2 "$*"
     exit 10
 }
+
 
 function get_display_resolution {
     local find_display="$1" ; shift
@@ -40,6 +33,19 @@ function get_highest_display {
     local data=( $(sort -r -n -k 5 <<<"$display_list") )
     echo $data
 }
+
+xrandr_current="$($XRANDR_STATUS_PROGRAM)"
+
+# find connected displays
+connected_displays=( $(sed -n -e 's/^\(.*\) connected.*mm$/\1/p' <<<"$xrandr_current") )
+display_list="$(sed -z -e 's/\n   / /g' <<<"$xrandr_current" | sed -n -e 's/^\([A-Z0-9_-]\+\) connected.* \([0-9]\+\)mm.* \([0-9]\+\)mm.* \([0-9]\+\)x\([0-9]\+\)[ 0-9\.\*]\++.*$/\1 \2 \3 \4 \5/p' )"
+: ${connected_displays[@]}
+: "$display_list"
+
+if [[ -z "$display_list" ]] ; then
+    die "Could not find any displays connected. XRANDR output:
+$xrandr_current"
+fi
 
 
 # if primary display is active then that is our frame buffer size
