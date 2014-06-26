@@ -38,7 +38,8 @@ xrandr_current="$($XRANDR_STATUS_PROGRAM)"
 
 # find connected displays
 connected_displays=( $(sed -n -e 's/^\(.*\) connected.*mm$/\1/p' <<<"$xrandr_current") )
-display_list="$(sed -z -e 's/\n   / /g' <<<"$xrandr_current" | sed -n -e 's/^\([A-Z0-9_-]\+\) connected.* \([0-9]\+\)mm.* \([0-9]\+\)mm.* \([0-9]\+\)x\([0-9]\+\)[ 0-9\.\*]\++.*$/\1 \2 \3 \4 \5/p' )"
+# See http://stackoverflow.com/a/1252191/2042547 for how to use sed to replace newlines
+display_list="$(sed ':a;N;$!ba;s/\n   / /g' <<<"$xrandr_current" | sed -n -e 's/^\([A-Z0-9_-]\+\) connected.* \([0-9]\+\)mm.* \([0-9]\+\)mm.* \([0-9]\+\)x\([0-9]\+\)[ 0-9\.\*]\++.*$/\1 \2 \3 \4 \5/p' )"
 : ${connected_displays[@]}
 : "$display_list"
 
