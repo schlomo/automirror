@@ -27,6 +27,6 @@ deb: clean
 	dpkg -c out/*.deb
 
 repo:
-	../putinrepo out/*.deb
+	../putinrepo.sh out/*.deb
 
 # vim: set ts=4 sw=4 tw=0 noet : 
