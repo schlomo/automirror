@@ -39,6 +39,16 @@ In rare cases it might be neccessary to run automirror more than once so that xr
     configured to mirror the primary display with **scaling**  so that the primary display fills
     the entire screen. The scaling does not care about aspect ratios!
     
+## CONFIGURATION
+
+automirror can be configured via environment variables:
+
+  * `AUTOMIRROR_PRIMARY_DISPLAY`:
+    Defaults to `LVDS1`. If this display is present than always configure all other displays to mirror that one.
+
+  * `AUTOMIRROR_NOTIFY_COMMAND`:
+    Defaults to use notify-send(1). Can be set to a command that will be called with a single argument containing a multi-line string. Set to `true` to disable notifications.
+
 ## DEVELOPMENT
 
 Please add test cases under `testdata` for everything you want to have covered.

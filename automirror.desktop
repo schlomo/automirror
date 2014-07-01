@@ -7,5 +7,5 @@ GenericName=Automatic Display Mirror
 Exec=automirror
 Icon=automirror
 Terminal=false
-Categories=Graphics;
+Categories=Utility;
 Comment=Automatically configure attached monitors for screen mirroring
