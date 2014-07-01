@@ -1,9 +1,18 @@
+automirror (3) stable; urgency=low
+
+  * typo
+  * No out
+  * Add notifications and document configuration variables
+  * Add release target
+
+ -- Schlomo Schapiro <schlomo+automirror@schapiro.org>  Tue, 01 Jul 2014 10:36:21 +0200
+
 automirror (2) stable; urgency=low
 
   * Support older sed versions
   * Add man page, fix icon name, bail out on errors
 
- -- Schapiro <sschapiro@isdeblnnl002.iscout.local>  Thu, 26 Jun 2014 16:09:34 +0200
+ -- Schapiro <schlomo+automirror@schapiro.org>  Thu, 26 Jun 2014 16:09:34 +0200
 
 automirror (1) stable; urgency=low
 
