@@ -42,9 +42,11 @@ connected_displays=( $(sed -n -e 's/^\(.*\) connected.*mm$/\1/p' <<<"$xrandr_cur
 
 # See http://stackoverflow.com/a/1252191/2042547 for how to use sed to replace newlines
 # display_list is a list of displays with their maximum/optimum pixel and physical dimensions
-display_list="$(sed ':a;N;$!ba;s/\n   / /g' <<<"$xrandr_current" | sed -n -e 's/^\([A-Z0-9_-]\+\) connected.* \([0-9]\+\)mm.* \([0-9]\+\)mm.* \([0-9]\+\)x\([0-9]\+\)[ 0-9\.\*]\++.*$/\1 \2 \3 \4 \5/p' )"
-: ${connected_displays[@]}
-: "$display_list"
+#                                                                                                         thanks to the first sed I know that here is only a SINGLE space
+#                                                                                                                                          |
+display_list="$(sed ':a;N;$!ba;s/\n   / /g' <<<"$xrandr_current" | sed -n -e 's/^\([A-Z0-9_-]\+\) connected.* \([0-9]\+\)mm.* \([0-9]\+\)mm \([0-9]\+\)x\([0-9]\+\).*$/\1 \2 \3 \4 \5/p' )"
+: connected_displays: ${connected_displays[@]}
+: display_list: "$display_list"
 
 if [[ -z "$display_list" ]] ; then
     die "Could not find any displays connected. XRANDR output:

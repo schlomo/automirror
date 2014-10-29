@@ -5,7 +5,7 @@ set -e -E -u
 function do_test {
     local xrandr_output="$1" ; shift
     local script_output="$1" ; shift
-    res="$( XRANDR_STATUS_PROGRAM="cat $xrandr_output" XRANDR_SET_PROGRAM=echo ./automirror.sh)"
+    res="$( XRANDR_STATUS_PROGRAM="cat $xrandr_output" XRANDR_SET_PROGRAM=echo AUTOMIRROR_NOTIFY_COMMAND=: ./automirror.sh)"
     if [[ "$res" == "$(< $script_output)" ]] ; then
         return 0
     else
@@ -28,7 +28,7 @@ for test_case in testdata/*.txt ; do
             echo "FAILED $test_case"
         fi
     else
-        echo "Missing test result '$script_output'"
+        echo "Missing test result file '$script_output'"
     fi
 done
 
