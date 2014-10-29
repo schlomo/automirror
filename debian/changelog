@@ -1,8 +1,8 @@
-automirror (3ubuntu1) stable; urgency=medium
+automirror (4) stable; urgency=medium
 
   * Support my HDMI-VGA adaptor and the 1280x800 projector
 
- -- Schlomo Schapiro <schlomo+automirror@schapiro.org>  Wed, 29 Oct 2014 12:48:52 +0100
+ -- Schlomo Schapiro <schlomo+automirror@schapiro.org>  Wed, 29 Oct 2014 12:50:58 +0100
 
 automirror (3) stable; urgency=low
 
