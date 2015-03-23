@@ -1,0 +1,2 @@
+--output eDP1 --scale 1x1 --off
+--fb 1920x1200 --output HDMI3 --mode 1920x1200 --scale 1x1 --output eDP1 --same-as HDMI3 --mode 1600x900 --scale-from 1920x1200
