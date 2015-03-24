@@ -34,11 +34,11 @@ In rare cases it might be neccessary to run automirror more than once so that xr
   * **Several Monitors**:
     If several monitors are active, then automirror will first determine the **primary display**
     which is either the builtin laptop monitor (`LVDS1`) or the monitor with the most lines.
-    
+
     Then automirror configures all displays at their native resolution. The other displays are
     configured to mirror the primary display with **scaling**  so that the primary display fills
     the entire screen. The scaling does not care about aspect ratios!
-    
+
 ## CONFIGURATION
 
 automirror can be configured via environment variables:
@@ -54,5 +54,5 @@ automirror can be configured via environment variables:
 Please add test cases under `testdata` for everything you want to have covered.
 
 To build automirror simply run `make deb`, otherwise you can simply run `automirror.sh` from the source distribution.
-Build Requirements are debuild(1) and [ronn](http://rtomayko.github.io/ronn/).
- 
+Build Requirements are debuild(1), git-dch(1) and [ronn](http://rtomayko.github.io/ronn/). For Ubuntu/Debian install the `devscripts git-buildpackage ruby-ronn make` packages.
+
