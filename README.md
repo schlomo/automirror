@@ -13,17 +13,17 @@ automirror has no options as it determines the required operation from the conne
 
 automirror uses RandR scaling to mirror the primary display to the other displays while driving the other displays at their native resolution.
 
-I wrote automirror because my Laptop has a native resolution of 1600x900 which is not supported by any computer screen or projector.
-When I connect a Full HD projector via HDMI and mirror the screen with the Gnome/Unity/XFCE Display Properties then the highes *compatible* configuration
-happens to be 1024x768 which is really not helpful.
+I wrote automirror because my Laptop has a native resolution of 1600x900, which is not supported by any computer screen or projector.
+When I connect a Full HD projector via HDMI and mirror the screen with the Gnome/Unity/XFCE Display Properties then the highest *compatible* configuration
+happens to be 1024x768, which is really not helpful.
 
-In this case automirror will simply configure the HDMI device with 1920x1080 and scale the 1600x900 laptop display. As a result I stay with the full resolution
+In this case automirror will simply configure the HDMI device with 1920x1080 and scale the 1600x900 laptop display. As a result, I stay with the full resolution
 on my laptop display and it also looks nice on the projector.
 
-Another case is where I work with a 1920x1200 computer monitor and add the 1920x1080 projector as a second display. Again the *common* resolution offered by both
+Another case is where I work with a 1920x1200 computer monitor and add the 1920x1080 projector as a second display. Again, the *common* resolution offered by both
 devices is 1024x768. automirror will recognize my 1920x1200 display as primary display and scale it to 1920x1080 on the secondary display, which is not really noticeable.
 
-It is recommended to configure a hot key to run automirror so that one can run it even if the display configuration is heavily mwessed up.
+It is recommended to configure a hot key to run automirror so that one can run it even if the display configuration is heavily messed up.
 In rare cases it might be neccessary to run automirror more than once so that xrandr will configure the displays correctly.
 
 ## SCENARIOS
@@ -44,7 +44,7 @@ In rare cases it might be neccessary to run automirror more than once so that xr
 automirror can be configured via environment variables:
 
   * `AUTOMIRROR_PRIMARY_DISPLAY`:
-    Defaults to `LVDS1`. If this display is present than always configure all other displays to mirror that one.
+    Defaults to `LVDS1`. If this display is present then always configure all other displays to mirror that one.
 
   * `AUTOMIRROR_NOTIFY_COMMAND`:
     Defaults to use notify-send(1). Can be set to a command that will be called with a single argument containing a multi-line string. Set to `true` to disable notifications.
