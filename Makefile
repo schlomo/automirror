@@ -1,5 +1,6 @@
 .PHONY: all build test install clean deb
 PACKAGE=automirror
+SHELL=bash
 
 all: build
 

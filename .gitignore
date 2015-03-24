@@ -2,3 +2,4 @@ out/*
 out
 debian/automirror*
 debian/files
+.c9
