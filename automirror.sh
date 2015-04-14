@@ -5,7 +5,7 @@ XRANDR_STATUS_PROGRAM=${XRANDR_STATUS_PROGRAM:-xrandr}
 XRANDR_SET_PROGRAM=${XRANDR_SET_PROGRAM:-xrandr}
 
 PRIMARY_DISPLAY=${AUTOMIRROR_PRIMARY_DISPLAY:-LVDS1}
-NOTIFY_SEND=( ${AUTOMIRROR_NOTIFY_COMMAND:-notify-send -a automirror -i automirror "Automatic Mirror Configuration"} )
+NOTIFY_SEND=( ${AUTOMIRROR_NOTIFY_COMMAND:-notify-send -t 5000 -a automirror -i automirror "Automatic Mirror Configuration"} )
 
 # force called programs to english output
 LANG=C LC_ALL=C
@@ -83,5 +83,6 @@ fi
 
 $XRANDR_SET_PROGRAM "${xrandr_set_args[@]}"
 ret=$?
+set -x
 "${NOTIFY_SEND[@]}" "$notify_string"
 exit $ret
