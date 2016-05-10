@@ -1,6 +1,8 @@
 automirror(1) -- Automatic Display Mirror
 =============================================
 
+[![Build Status](https://semaphoreci.com/api/v1/schlomo/automirror/branches/master/badge.svg)](https://semaphoreci.com/schlomo/automirror)
+
 ## SYNOPSIS
 
 `automirror`
