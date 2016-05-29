@@ -1,3 +1,20 @@
+automirror (6) stable; urgency=medium
+
+  [ Schlomo Schapiro ]
+  * Ignore Cloud9 project files and support systems using Dash as /bin/sh
+  * Notification timeout is 5 seconds Add screenshots of notifications from test cases
+
+  [ Norbert Wenzel ]
+  * added debhelper package requirement for ubuntu.
+    The package was missing on my relatively pristine 14.04LTS and caused the build
+    to fail on my new notebook.
+
+  [ Schlomo Schapiro ]
+  * Update README.md
+  * Update for Xenial
+
+ -- Schlomo Schapiro <schlomo+automirror@schapiro.org>  Sun, 29 May 2016 13:16:16 +0200
+
 automirror (5) stable; urgency=medium
 
   [ Stefan Nordhausen ]
