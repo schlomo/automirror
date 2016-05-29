@@ -8,7 +8,7 @@ build:
 	@echo No build required
 
 release:
-	git-dch --full --release --distribution stable --auto --git-author --commit
+	gbp dch --full --release --distribution stable --auto --git-author --commit
 
 test:
 	./runtests.sh

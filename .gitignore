@@ -2,4 +2,5 @@ out/*
 out
 debian/automirror*
 debian/files
+debian/debhelper-build-stamp
 .c9
