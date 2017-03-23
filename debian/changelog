@@ -1,3 +1,9 @@
+automirror (29) stable; urgency=medium
+
+  * Remove forgotten comment and debug output
+
+ -- Schlomo Schapiro <schlomo+automirror@schapiro.org>  Thu, 23 Mar 2017 15:07:04 +0100
+
 automirror (27) stable; urgency=medium
 
   * Gracefully fall back to echo if notify-send is missing.
