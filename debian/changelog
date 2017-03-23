@@ -1,3 +1,9 @@
+automirror (31) stable; urgency=medium
+
+  * New feature: Interactive mode and set primary display via command line
+
+ -- Schlomo Schapiro <schlomo+automirror@schapiro.org>  Thu, 23 Mar 2017 17:49:59 +0100
+
 automirror (29) stable; urgency=medium
 
   * Remove forgotten comment and debug output
