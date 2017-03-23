@@ -5,13 +5,19 @@ automirror(1) -- Automatic Display Mirror
 
 ## SYNOPSIS
 
-`automirror`
+`automirror` [-i | --interactive | <OUTPUT>]
 
 ## DESCRIPTION
 
-automirror automatically configures the attached monitors in a mirror configuration.
+automirror automatically configures the attached monitors in a mirror configuration that is optimized for the _primary display_ and makes all other outputs scale to that.
 
-automirror has no options as it determines the required operation from the connected and active monitors.
+The primary display is set via
+
+  * command line as the first argument, e.g. `automirror HDMI3`
+
+  * the environment variable `AUTOMIRROR_PRIMARY_DISPLAY`
+
+  * an interactive dialog when called with the **-i** option, e.g. `automirror -i`
 
 automirror uses RandR scaling to mirror the primary display to the other displays while driving the other displays at their native resolution.
 
@@ -41,12 +47,15 @@ In rare cases it might be neccessary to run automirror more than once so that xr
     configured to mirror the primary display with **scaling**  so that the primary display fills
     the entire screen. The scaling does not care about aspect ratios!
 
+  * **Presentations**:
+    Use the *-i* interactive mode to select the external output and have the laptop screen scale to that. This is especially useful for HiDPI devices.
+
 ## CONFIGURATION
 
 automirror can be configured via environment variables:
 
   * `AUTOMIRROR_PRIMARY_DISPLAY`:
-    Defaults to `LVDS1`. If this display is present then always configure all other displays to mirror that one.
+    Defaults to `LVDS1`. If this display is present then always configure all other displays to mirror that one. The purpose of this variable is to setup automirror to always optimize for your internal laptop display.
 
   * `AUTOMIRROR_NOTIFY_COMMAND`:
     Defaults to use notify-send(1). Can be set to a command that will be called with a single argument containing a multi-line string. Set to `true` to disable notifications.

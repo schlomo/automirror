@@ -46,7 +46,7 @@ connected_displays=( $(sed -n -e 's/^\(.*\) connected.*mm$/\1/p' <<<"$xrandr_cur
 
 # See http://stackoverflow.com/a/1252191/2042547 for how to use sed to replace newlines
 # display_list is a list of displays with their maximum/optimum pixel and physical dimensions
-#                                                                                                         thanks to the first sed I know that here is only a SINGLE space
+# (thanks to the first sed I know that here is only a SINGLE space)
 #                                                                                                                                          |
 display_list="$(sed ':a;N;$!ba;s/\n   / /g' <<<"$xrandr_current" | sed -n -e 's/^\([a-zA-Z0-9_-]\+\) connected.* \([0-9]\+\)mm.* \([0-9]\+\)mm \([0-9]\+\)x\([0-9]\+\).*$/\1 \2 \3 \4 \5/p' )"
 : connected_displays: ${connected_displays[@]}
@@ -57,6 +57,26 @@ if [[ -z "$display_list" ]] ; then
 $xrandr_current"
 fi
 
+if [[ "$*" == *-i* || "$*" == *--interactive* || "$PRIMARY_DISPLAY" == ask ]] ; then
+    if type -p zenity &>/dev/null ; then
+            MANUAL_PRIMARY_DISPLAY=$(
+            zenity --list --mid-search --window-icon question \
+                --title "Automirror" \
+                --text="Please select the primary output. All other outputs will be scaled to match." \
+                --column Output --column "Width [mm]" --column "Height [mm]" --column "Width [px]" --column "Height [px]" \
+                $display_list \
+                || echo "$PRIMARY_DISPLAY"
+        )
+    else
+        echo "Please select the primary output. All other outputs will be scaled to match:"
+        ( echo Output "Width[mm]" "Height[mm]" "Width[px]" "Height[px]"; echo "$display_list") | column -t
+        read -p "Specify the exact display name (1st column): " MANUAL_PRIMARY_DISPLAY
+    fi
+    PRIMARY_DISPLAY=${MANUAL_PRIMARY_DISPLAY:-none}
+elif [[ $# -gt 0 && "${connected_displays[*]}" == *"$1"* ]]; then
+    # set primary display from command line - must be 1st arg
+    PRIMARY_DISPLAY="$1"
+fi
 
 # if the primary display is NOT connected then use the highest display as primary
 if [[ "${connected_displays[*]}" != *$PRIMARY_DISPLAY* ]] ; then
