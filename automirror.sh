@@ -83,10 +83,7 @@ else
     done <<<"$other_display_list"
 fi
 
-#logger -s -t "$0" -- Running $XRANDR_SET_PROGRAM "${xrandr_set_args[@]}"
-
 $XRANDR_SET_PROGRAM "${xrandr_set_args[@]}"
 ret=$?
-set -x
-"${NOTIFY_SEND[@]}" "$notify_string"
+"${NOTIFY_SEND[@]}" "$notify_string" || :
 exit $ret
