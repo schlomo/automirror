@@ -1,14 +1,29 @@
-.PHONY: all build test install clean deb
+.PHONY: all build test install clean commit-release release deb repo
 PACKAGE=automirror
 SHELL=bash
+VERSION := $(shell git rev-list HEAD --count --no-merges)
+GIT_STATUS := $(shell git status --porcelain)
+
 
 all: build
 
 build:
 	@echo No build required
 
-release:
-	gbp dch --full --release --distribution stable --auto --git-author --commit
+commit-release:
+ifneq ($(GIT_STATUS),)
+	$(error Please commit all changes before releasing. $(shell git status 1>&2))
+endif
+	gbp dch --full --release --new-version=$(VERSION) --distribution stable --auto --git-author --commit
+	git push
+
+release: commit-release deb
+	@latest_tag=$$(git describe --tags `git rev-list --tags --max-count=1`); \
+	comparison="$$latest_tag..HEAD"; \
+	if [ -z "$$latest_tag" ]; then comparison=""; fi; \
+	changelog=$$(git log $$comparison --oneline --no-merges --reverse); \
+	github-release schlomo/$(PACKAGE) v$(VERSION) "$$(git rev-parse --abbrev-ref HEAD)" "**Changelog**<br/>$$changelog" 'out/*.deb'; \
+	git pull
 
 test:
 	./runtests.sh
@@ -33,4 +48,4 @@ deb: clean
 repo:
 	../putinrepo.sh out/*.deb
 
-# vim: set ts=4 sw=4 tw=0 noet : 
+# vim: set ts=4 sw=4 tw=0 noet :

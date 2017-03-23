@@ -58,3 +58,4 @@ Please add test cases under `testdata` for everything you want to have covered.
 To build automirror simply run `make deb`, otherwise you can simply run `automirror.sh` from the source distribution.
 Build Requirements are debuild(1), git-dch(1) and [ronn](http://rtomayko.github.io/ronn/). For Ubuntu/Debian install the `devscripts git-buildpackage ruby-ronn make debhelper` packages.
 
+For a release [github-release](https://github.com/c4milo/github-release) needs to be in your PATH. Run `make release`.
