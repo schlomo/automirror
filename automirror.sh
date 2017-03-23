@@ -7,6 +7,10 @@ XRANDR_SET_PROGRAM=${XRANDR_SET_PROGRAM:-xrandr}
 PRIMARY_DISPLAY=${AUTOMIRROR_PRIMARY_DISPLAY:-LVDS1}
 NOTIFY_SEND=( ${AUTOMIRROR_NOTIFY_COMMAND:-notify-send -t 5000 -a automirror -i automirror "Automatic Mirror Configuration"} )
 
+if ! type -t "$NOTIFY_SEND" &>/dev/null ; then
+    NOTIFY_SEND=echo
+fi
+
 # force called programs to english output
 LANG=C LC_ALL=C
 
