@@ -1,3 +1,11 @@
+automirror (27) stable; urgency=medium
+
+  * Gracefully fall back to echo if notify-send is missing.
+    That helps people who just download the script and don't care about the GUI notification
+  * Automatically create GitHub releases
+
+ -- Schlomo Schapiro <schlomo+automirror@schapiro.org>  Thu, 23 Mar 2017 14:57:21 +0100
+
 automirror (6) stable; urgency=medium
 
   [ Schlomo Schapiro ]
