@@ -5,7 +5,7 @@ automirror(1) -- Automatic Display Mirror
 
 ## SYNOPSIS
 
-`automirror` [-i | --interactive | <OUTPUT>]
+`automirror` [-i | --interactive | &lt;OUTPUT&gt;]
 
 ## DESCRIPTION
 
