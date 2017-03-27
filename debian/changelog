@@ -1,3 +1,9 @@
+automirror (39) stable; urgency=medium
+
+  * NOOP
+
+ -- Schlomo Schapiro <schlomo@schapiro.org>  Mon, 27 Mar 2017 23:06:44 +0200
+
 automirror (38) stable; urgency=medium
 
   * Fix buildrequires
