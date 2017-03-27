@@ -1,3 +1,9 @@
+automirror (43) stable; urgency=medium
+
+  * Enable signed builds and upload release to launchpad
+
+ -- Schlomo Schapiro <schlomo@schapiro.org>  Mon, 27 Mar 2017 23:37:41 +0200
+
 automirror (41) stable; urgency=medium
 
   * NOOP
