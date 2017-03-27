@@ -1,3 +1,9 @@
+automirror (45) stable; urgency=medium
+
+  * Fix launchpad upload
+
+ -- Schlomo Schapiro <schlomo@schapiro.org>  Mon, 27 Mar 2017 23:42:42 +0200
+
 automirror (43) stable; urgency=medium
 
   * Enable signed builds and upload release to launchpad
