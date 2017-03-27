@@ -24,7 +24,7 @@ release: commit-release deb
 	changelog=$$(git log $$comparison --oneline --no-merges --reverse); \
 	github-release schlomo/$(PACKAGE) v$(VERSION) "$$(git rev-parse --abbrev-ref HEAD)" "**Changelog**<br/>$$changelog" 'out/*.deb'; \
 	git pull
-	dput ppa:sschapiro/ppa/xenial out/$(PACKAGE)_*.changes
+	dput ppa:sschapiro/ubuntu/ppa/xenial out/$(PACKAGE)_*_source.changes
 
 test:
 	./runtests.sh
@@ -40,7 +40,8 @@ clean:
 	rm -Rf debian/$(PACKAGE)* debian/files out/*
 
 deb: clean
-	debuild -i --lintian-opts --profile debian
+	debuild -i -b --lintian-opts --profile debian
+	debuild -i -S --lintian-opts --profile debian
 	mkdir -p out
 	mv ../$(PACKAGE)*.{xz,dsc,deb,build,changes} out/
 	dpkg -I out/*.deb
