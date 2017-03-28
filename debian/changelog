@@ -1,3 +1,12 @@
+automirror (49) stable; urgency=medium
+
+  * Ignore node stuff
+  * New test case with LifeSize
+  * New feature: Desktop icon for interactive mode (-i)
+    Sign only debs built for release to allow building debs for testing
+
+ -- Schlomo Schapiro <schlomo@schapiro.org>  Tue, 28 Mar 2017 18:43:41 +0200
+
 automirror (45) stable; urgency=medium
 
   * Fix launchpad upload
