@@ -1,3 +1,39 @@
+automirror (45) stable; urgency=medium
+
+  * Fix launchpad upload
+
+ -- Schlomo Schapiro <schlomo@schapiro.org>  Mon, 27 Mar 2017 23:42:42 +0200
+
+automirror (43) stable; urgency=medium
+
+  * Enable signed builds and upload release to launchpad
+
+ -- Schlomo Schapiro <schlomo@schapiro.org>  Mon, 27 Mar 2017 23:37:41 +0200
+
+automirror (41) stable; urgency=medium
+
+  * NOOP
+
+ -- Schlomo Schapiro <schlomo@schapiro.org>  Mon, 27 Mar 2017 23:12:37 +0200
+
+automirror (40) stable; urgency=medium
+
+  * NOOP
+
+ -- Schlomo Schapiro <schlomo@schapiro.org>  Mon, 27 Mar 2017 23:09:04 +0200
+
+automirror (39) stable; urgency=medium
+
+  * NOOP
+
+ -- Schlomo Schapiro <schlomo@schapiro.org>  Mon, 27 Mar 2017 23:06:44 +0200
+
+automirror (38) stable; urgency=medium
+
+  * Fix buildrequires
+
+ -- Schlomo Schapiro <schlomo@schapiro.org>  Mon, 27 Mar 2017 23:02:23 +0200
+
 automirror (36) stable; urgency=medium
 
   * Fix links
