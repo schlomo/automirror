@@ -32,16 +32,19 @@ test:
 install:
 	mkdir -p $(DESTDIR)/usr/bin $(DESTDIR)/usr/share/applications $(DESTDIR)/usr/share/icons/hicolor/scalable/apps $(DESTDIR)/usr/share/man/man1
 	install -m 0755 automirror.sh -D $(DESTDIR)/usr/bin/automirror
-	install -m 0644 automirror.desktop $(DESTDIR)/usr/share/applications
-	install -m 0644 automirror.svg $(DESTDIR)/usr/share/icons/hicolor/scalable/apps
+	install -m 0644 automirror*.desktop $(DESTDIR)/usr/share/applications
+	install -m 0644 automirror*.svg $(DESTDIR)/usr/share/icons/hicolor/scalable/apps
 	ronn --pipe <README.md | gzip -9 > $(DESTDIR)/usr/share/man/man1/automirror.1.gz
 
 clean:
 	rm -Rf debian/$(PACKAGE)* debian/files out/*
 
 deb: clean
-	debuild -i -b --lintian-opts --profile debian
-	debuild -i -S --lintian-opts --profile debian
+ifneq ($(MAKECMDGOALS), release)
+	$(eval DEBUILD_ARGS := -us -uc)
+endif
+	debuild $(DEBUILD_ARGS) -i -b --lintian-opts --profile debian
+	debuild $(DEBUILD_ARGS) -i -S --lintian-opts --profile debian
 	mkdir -p out
 	mv ../$(PACKAGE)*.{xz,dsc,deb,build,changes} out/
 	dpkg -I out/*.deb

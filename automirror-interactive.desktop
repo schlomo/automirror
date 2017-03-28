@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Type=Application
+Name=Interactive Display Mirror
+GenericName=Interactive Display Mirror
+Exec=automirror -i
+Icon=automirror-interactive
+Terminal=false
+Categories=Utility;
+Comment=Ask for primary monitor and configure attached monitors for screen mirroring
