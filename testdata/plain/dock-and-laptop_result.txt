@@ -1,0 +1,2 @@
+--output eDP-1-1 --scale 1x1 --off
+--fb 1920x1200 --output DP-0.1 --mode 1920x1200 --scale 1x1 --output eDP-1-1 --same-as DP-0.1 --mode 1920x1080 --scale-from 1920x1200
