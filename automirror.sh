@@ -48,7 +48,7 @@ connected_displays=( $(sed -n -e 's/^\(.*\) connected.*mm$/\1/p' <<<"$xrandr_cur
 # display_list is a list of displays with their maximum/optimum pixel and physical dimensions
 # (thanks to the first sed I know that here is only a SINGLE space)
 #                                                                                                                                          |
-display_list="$(sed ':a;N;$!ba;s/\n   / /g' <<<"$xrandr_current" | sed -n -e 's/^\([a-zA-Z0-9_-]\+\) connected.* \([0-9]\+\)mm.* \([0-9]\+\)mm \([0-9]\+\)x\([0-9]\+\).*$/\1 \2 \3 \4 \5/p' )"
+display_list="$(sed ':a;N;$!ba;s/\n   / /g' <<<"$xrandr_current" | sed -n -e 's/^\([a-zA-Z0-9_.-]\+\) connected.* \([0-9]\+\)mm.* \([0-9]\+\)mm \([0-9]\+\)x\([0-9]\+\).*$/\1 \2 \3 \4 \5/p' )"
 : connected_displays: ${connected_displays[@]}
 : display_list: "$display_list"
 
