@@ -1,3 +1,9 @@
+automirror (51) stable; urgency=medium
+
+  * Allow periods in display names. Contributed by Scott Crossen
+
+ -- Schlomo Schapiro <schlomo@schapiro.org>  Wed, 16 Jun 2021 19:06:04 +0200
+
 automirror (49) stable; urgency=medium
 
   * Ignore node stuff
